@@ -1,0 +1,12 @@
+Скомпилировать написанную программу, 
+используя компилятор командной строки csc.exe(Windows)
+ или .NET Core CLI (любая платформа).
+
+
+Win+R
+cmd
+cd C:\BSUIR\C#\Lab1\
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe *.cs
+
+dotnet run
