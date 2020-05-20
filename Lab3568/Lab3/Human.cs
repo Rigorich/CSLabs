@@ -40,7 +40,7 @@ namespace Lab3
             {
                 if (value == null)
                 {
-                    throw new Exception("You can't nullify someone's name!");
+                    throw new ArgumentException("You can't nullify someone's name!");
                 }
                 Console.WriteLine($"Human #{Passport} {Name} changed name to {value}");
                 name = value;
@@ -93,7 +93,7 @@ namespace Lab3
                         return i.Key;
                     }
                 }
-                throw new Exception("There was no such event!");
+                throw new ArgumentOutOfRangeException("There was no such event!");
             }
             set
             {

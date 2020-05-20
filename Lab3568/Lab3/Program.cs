@@ -27,6 +27,7 @@ namespace Lab3
             norman.AddEvent("test");
             norman.AddEvent(DateTime.UnixEpoch, "test");
             Console.Write($"History of {norman.Name}:\n{norman.History}");
+            norman.Say("pls delete test-1970 thx");
             norman.DelEvent("test");
             Console.Write($"History of {norman.Name}:\n{norman.History}");
 
