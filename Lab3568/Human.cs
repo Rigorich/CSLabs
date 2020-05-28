@@ -160,5 +160,25 @@ namespace Lab3568
             history.Clear();
             Console.WriteLine("Oh no, human {0} (#{1}) is dead!", Name, Passport);
         }
+
+        public delegate void Business(Human human);
+        public event Business Plan;
+        public void DoSomething()
+        {
+            Console.WriteLine($"{Name} getting down to business...");
+            var list = Plan?.GetInvocationList();
+            foreach(Business bsn in list)
+            {
+                try
+                {
+                    bsn.Invoke(this);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine($"Oh, {Name} failed one of the businesses because:\n{ex.Message}");
+                }
+                Plan -= bsn;
+            }
+        }
     }
 }

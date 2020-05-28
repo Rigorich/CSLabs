@@ -13,9 +13,41 @@ namespace Lab3568
         }
         static void Lab8Test()
         {
-            // ...
+            Human tester = new Human("Обычный Чел");
+
+            void UsualTask(Human human)
+            {
+                Console.WriteLine($"{human.Name} захотел поработать с обычными функциями");
+                human.AddEvent("обычные дела");
+            }
+            tester.Plan += UsualTask;
+
+            tester.Plan += delegate (Human human)
+            {
+                Console.WriteLine($"{human.Name} захотел поработать с анонимными методами");
+                human.AddEvent("анонимизация методов");
+            };
+
+            tester.Plan += (Human human) =>
+            {
+                Console.WriteLine($"{human.Name} захотел поработать с лямбда-выражениями");
+                if (human.Passport % 2 == 0)
+                {
+                    throw new Exception("Только люди с нечётным номером паспорта могут использовать лямбды");
+                }
+                human.AddEvent("делегирование");
+            };
+
+            tester.DoSomething();
+            Console.WriteLine(tester.History);
+
+            tester.Plan += UsualTask;
+            tester.DoSomething();
+            Console.WriteLine(tester.History);
+
             Console.WriteLine("\n\n\n");
         }
+
 
         static void Lab56Test()
         {
