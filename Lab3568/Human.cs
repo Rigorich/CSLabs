@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lab3
+namespace Lab3568
 {
     class Human
     {
